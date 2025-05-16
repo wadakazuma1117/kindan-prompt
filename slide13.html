@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロンプトチェイニングの極意：複数プロンプトの連鎖で能力を最大化</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+
+            position: relative;
+            background: linear-gradient(135deg, #f0f7ff 0%, #f9f0ff 100%);
+        }
+        .title {
+            font-weight: 800;
+            background: linear-gradient(90deg, #5b9aff 0%, #a56dff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        .card-header {
+            border-radius: 12px 12px 0 0;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+        }
+        .flow-arrow {
+            height: 2px;
+            background: currentColor;
+            position: relative;
+            margin: 0 8px;
+            flex-grow: 1;
+        }
+        .flow-arrow:after {
+            content: "";
+            position: absolute;
+            right: -6px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid currentColor;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+        .step-box {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 0.65rem;
+            color: #374151;
+            text-align: center;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #a0aec0;
+            font-family: 'Courier New', monospace;
+            padding: 6px;
+            margin: 6px 0;
+            font-size: 0.65rem;
+            color: #374151;
+            max-height: 80px;
+            overflow-y: auto;
+        }
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e6edff' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        .highlight-box {
+            border-radius: 8px;
+            padding: 6px 10px;
+        }
+        .subtle-shadow {
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide flex flex-col px-10 py-8 pattern-bg">
+        <!-- Header with title -->
+        <div class="mb-4">
+            <h1 class="title text-4xl mb-1">11.プロンプトチェイニングの極意：プロンプトの連鎖で能力を最大化</h1>
+            <p class="text-gray-600 italic text-lg">
+                複数のプロンプトを連続処理し、前の出力を次の入力として活用。単一では得られない複雑な思考プロセスを実現。
+            </p>
+        </div>
+        
+        <!-- Top row with 2 techniques -->
+        <div class="flex gap-4 mb-4">
+            <!-- Step-up type chaining (REFINE) -->
+            <div class="w-1/2">
+                <div class="card">
+                    <div class="card-header bg-blue-100">
+                        <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-blue-700">ステップアップ型チェイニング (REFINE)</h3>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-xs text-gray-700 mb-2">
+                            <span class="font-bold">概要：</span> AIの出力を段階的に改善し、より高品質な最終結果を得る手法。各ステップで異なる側面を強化。
+                        </p>
+                        
+                        <!-- Flow diagram -->
+                        <div class="flex items-center justify-between text-blue-500 mb-2 px-2">
+                            <div class="step-box bg-blue-50 text-blue-700">初期プロンプト</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-blue-50 text-blue-700">改善プロンプト</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-blue-50 text-blue-700">最適化プロンプト</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-blue-100 font-bold text-blue-700">完成</div>
+                        </div>
+                        
+                        <div class="code-block text-xs">
+                            <span class="text-blue-600 font-bold">【例】</span><br>
+                            1. "商品Xのキャッチコピーを5つ考えてください"<br>
+                            2. "これらのキャッチコピーをより魅力的にリライトしてください"<br>
+                            3. "ターゲットオーディエンス[Y]に最も響くと思うものを選び、その理由を説明してください"
+                        </div>
+                        
+                        <div class="flex mt-2">
+                            <div class="bg-blue-50 highlight-box flex-1 mr-2 subtle-shadow">
+                                <p class="text-xs text-blue-700">
+                                    <i class="fas fa-magic mr-1"></i>
+                                    <span class="font-bold">効果：</span> 段階的な洗練で質の高い成果物
+                                </p>
+                            </div>
+                            <div class="bg-blue-50 highlight-box flex-1 subtle-shadow">
+                                <p class="text-xs text-blue-700">
+                                    <i class="fas fa-bullseye mr-1"></i>
+                                    <span class="font-bold">適したタスク：</span> キャッチコピー、記事執筆
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rebuttal type chaining (VALIDATE) -->
+            <div class="w-1/2">
+                <div class="card">
+                    <div class="card-header bg-purple-100">
+                        <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-purple-700">反論型チェイニング (VALIDATE)</h3>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-xs text-gray-700 mb-2">
+                            <span class="font-bold">概要：</span> AIに自己批判や異なる立場からの評価をさせ、バイアスを減らし、より客観的で深い分析を得る手法。
+                        </p>
+                        
+                        <!-- Flow diagram -->
+                        <div class="flex items-center justify-between text-purple-500 mb-2 px-2">
+                            <div class="step-box bg-purple-50 text-purple-700">初期分析</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-purple-50 text-purple-700">反論プロンプト</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-purple-50 text-purple-700">総合プロンプト</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-purple-100 font-bold text-purple-700">均衡の取れた結論</div>
+                        </div>
+                        
+                        <div class="code-block text-xs">
+                            <span class="text-purple-600 font-bold">【例】</span><br>
+                            1. "テクノロジーXが業界Yに与える影響を分析してください"<br>
+                            2. "あなたが先ほど提供した分析の弱点や見落としている側面を厳しく批評してください"<br>
+                            3. "両方の視点を考慮した、より均衡のとれた総合的な分析を提供してください"
+                        </div>
+                        
+                        <div class="flex mt-2">
+                            <div class="bg-purple-50 highlight-box flex-1 mr-2 subtle-shadow">
+                                <p class="text-xs text-purple-700">
+                                    <i class="fas fa-eye-slash mr-1"></i>
+                                    <span class="font-bold">効果：</span> 確証バイアスの回避、充実した分析
+                                </p>
+                            </div>
+                            <div class="bg-purple-50 highlight-box flex-1 subtle-shadow">
+                                <p class="text-xs text-purple-700">
+                                    <i class="fas fa-file-alt mr-1"></i>
+                                    <span class="font-bold">適したタスク：</span> 意思決定支援、リスク分析
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom row with 2 more techniques -->
+        <div class="flex gap-4 mb-4">
+            <!-- Multi-role type chaining (DIVERSE) -->
+            <div class="w-1/2">
+                <div class="card">
+                    <div class="card-header bg-green-100">
+                        <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-green-700">マルチロール型チェイニング (DIVERSE)</h3>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-xs text-gray-700 mb-2">
+                            <span class="font-bold">概要：</span> 複数の異なる役割や専門分野からの視点を順番に得ることで、多角的で豊かな洞察を引き出す。
+                        </p>
+                        
+                        <!-- Flow diagram -->
+                        <div class="flex items-center justify-between text-green-500 mb-2 px-2">
+                            <div class="step-box bg-green-50 text-green-700">専門家1の視点</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-green-50 text-green-700">専門家2の視点</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-green-50 text-green-700">専門家3の視点</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-green-100 font-bold text-green-700">統合分析</div>
+                        </div>
+                        
+                        <div class="code-block text-xs">
+                            <span class="text-green-600 font-bold">【例】</span><br>
+                            1. "デジタルトランスフォーメーションについて、まずITエンジニアの視点から説明してください"<br>
+                            2. "次に同じテーマを、経営コンサルタントの視点で分析してください"<br>
+                            3. "さらに、従業員体験の専門家として、人的側面からの課題と解決策を挙げてください"<br>
+                            4. "最後に、これら3つの視点を統合し、包括的アプローチを提案してください"
+                        </div>
+                        
+                        <div class="flex mt-2">
+                            <div class="bg-green-50 highlight-box flex-1 mr-2 subtle-shadow">
+                                <p class="text-xs text-green-700">
+                                    <i class="fas fa-puzzle-piece mr-1"></i>
+                                    <span class="font-bold">効果：</span> 多様な視点を組み合わせた包括的解決策
+                                </p>
+                            </div>
+                            <div class="bg-green-50 highlight-box flex-1 subtle-shadow">
+                                <p class="text-xs text-green-700">
+                                    <i class="fas fa-lightbulb mr-1"></i>
+                                    <span class="font-bold">適したタスク：</span> 複合的問題解決、学際的テーマ
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Exploration to Deepening type chaining (EXPLORE) -->
+            <div class="w-1/2">
+                <div class="card">
+                    <div class="card-header bg-amber-100">
+                        <div class="bg-amber-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-amber-700">探索→深化型チェイニング (EXPLORE)</h3>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-xs text-gray-700 mb-2">
+                            <span class="font-bold">概要：</span> 広範囲を探索した後、有望な方向性に絞り込み、深く掘り下げていく手法。アイデアの発散と収束を組み合わせる。
+                        </p>
+                        
+                        <!-- Flow diagram -->
+                        <div class="flex items-center justify-between text-amber-500 mb-2 px-2">
+                            <div class="step-box bg-amber-50 text-amber-700">広範な探索</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-amber-50 text-amber-700">最適解の選択</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-amber-50 text-amber-700">選択肢の深堀り</div>
+                            <div class="flow-arrow"></div>
+                            <div class="step-box bg-amber-100 font-bold text-amber-700">実装計画</div>
+                        </div>
+                        
+                        <div class="code-block text-xs">
+                            <span class="text-amber-600 font-bold">【例】</span><br>
+                            1. "環境問題への意識を高めるイベントのアイデアを10個考えてください"<br>
+                            2. "これらのアイデアの中から、実現可能性と効果のバランスが最も良い3つを選んでください"<br>
+                            3. "選ばれた[特定のアイデア]について詳細な実施計画を立案してください。予算、必要なリソース、タイムラインを含めてください"
+                        </div>
+                        
+                        <div class="flex mt-2">
+                            <div class="bg-amber-50 highlight-box flex-1 mr-2 subtle-shadow">
+                                <p class="text-xs text-amber-700">
+                                    <i class="fas fa-compress-arrows-alt mr-1"></i>
+                                    <span class="font-bold">効果：</span> アイデア出しの幅広さと実行計画の深さを両立
+                                </p>
+                            </div>
+                            <div class="bg-amber-50 highlight-box flex-1 subtle-shadow">
+                                <p class="text-xs text-amber-700">
+                                    <i class="fas fa-tasks mr-1"></i>
+                                    <span class="font-bold">適したタスク：</span> プロジェクト計画、製品開発
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom section with practical points -->
+        <div class="card p-4 bg-gradient-to-r from-indigo-50 via-blue-50 to-purple-50">
+            <div class="flex items-center mb-2">
+                <div class="bg-indigo-100 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                    <i class="fas fa-link text-indigo-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-indigo-700">プロンプトチェイニングの実践ポイント</h3>
+            </div>
+            
+            <div class="flex gap-3">
+                <div class="flex-1 bg-white p-3 rounded-md shadow-sm">
+                    <p class="text-xs font-bold text-indigo-700 mb-1">
+                        <i class="fas fa-bullseye mr-1"></i>
+                        各ステップの目的を明確に
+                    </p>
+                    <p class="text-xs text-gray-600">
+                        各プロンプトが何を達成するべきかを明確に定義する
+                    </p>
+                </div>
+                <div class="flex-1 bg-white p-3 rounded-md shadow-sm">
+                    <p class="text-xs font-bold text-blue-700 mb-1">
+                        <i class="fas fa-reply-all mr-1"></i>
+                        前の結果を参照
+                    </p>
+                    <p class="text-xs text-gray-600">
+                        「先ほどの回答を踏まえて」など、明示的に前の出力を参照する
+                    </p>
+                </div>
+                <div class="flex-1 bg-white p-3 rounded-md shadow-sm">
+                    <p class="text-xs font-bold text-purple-700 mb-1">
+                        <i class="fas fa-chart-line mr-1"></i>
+                        段階的な複雑さ
+                    </p>
+                    <p class="text-xs text-gray-600">
+                        単純なタスクから始めて徐々に複雑化させる
+                    </p>
+                </div>
+                <div class="flex-1 bg-white p-3 rounded-md shadow-sm">
+                    <p class="text-xs font-bold text-green-700 mb-1">
+                        <i class="fas fa-sync-alt mr-1"></i>
+                        フィードバックループ
+                    </p>
+                    <p class="text-xs text-gray-600">
+                        AIの出力に人間フィードバックを与え、次のプロンプトに反映させる
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

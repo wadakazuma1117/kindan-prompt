@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>禁断のプロンプト</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+
+            position: relative;
+            background: linear-gradient(135deg, #ffeef8 0%, #f0f7ff 50%, #e8f5ff 100%);
+        }
+        .title {
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff6b98 0%, #895cfa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        .subtitle {
+            font-weight: 700;
+            color: #6c5ce7;
+        }
+        .glow {
+            filter: drop-shadow(0 0 15px rgba(255, 107, 152, 0.5));
+        }
+        .light-beam {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,217,244,0.6) 0%, rgba(255,217,244,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide flex flex-col items-center justify-center px-20 py-16 relative overflow-hidden">
+        <!-- Light beams -->
+        <div class="light-beam" style="top: -200px; left: -100px;"></div>
+        <div class="light-beam" style="bottom: -300px; right: -200px;"></div>
+        
+        <!-- AI Power Icon -->
+        <div class="absolute top-16 right-16 z-10">
+            <div class="relative">
+                <i class="fas fa-brain text-8xl text-purple-400 opacity-80 glow"></i>
+                <i class="fas fa-bolt absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-yellow-400 glow"></i>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="z-10 text-center max-w-5xl">
+            <!-- Main Title -->
+            <h1 class="title text-7xl mb-6">禁断のプロンプト</h1>
+            <h2 class="title text-5xl mb-10">AIの真の力を解き放つ実践ガイド</h2>
+            
+            <!-- Subtitle -->
+            <p class="subtitle text-3xl mb-8">生成AIを使いこなすための秘密の武器</p>
+            
+            <!-- Description -->
+            <div class="bg-white bg-opacity-70 rounded-lg p-6 shadow-lg mb-12">
+                <p class="text-gray-700 text-2xl font-medium leading-relaxed">
+                    ありきたりのプロンプトでは引き出せない、<br>
+                    AIの真の能力を最大限に発揮させるテクニック集
+                </p>
+            </div>
+            
+            <!-- Key Points -->
+            <div class="flex justify-center space-x-8 mb-12">
+                <div class="flex items-center bg-pink-100 bg-opacity-80 px-4 py-2 rounded-full">
+                    <i class="fas fa-magic text-pink-500 mr-2"></i>
+                    <span class="text-pink-600 font-medium">型破りなペルソナ</span>
+                </div>
+                <div class="flex items-center bg-purple-100 bg-opacity-80 px-4 py-2 rounded-full">
+                    <i class="fas fa-cogs text-purple-500 mr-2"></i>
+                    <span class="text-purple-600 font-medium">思考をハック</span>
+                </div>
+                <div class="flex items-center bg-blue-100 bg-opacity-80 px-4 py-2 rounded-full">
+                    <i class="fas fa-lightbulb text-blue-500 mr-2"></i>
+                    <span class="text-blue-600 font-medium">常識を覆す発想</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quote -->
+        <div class="absolute bottom-16 text-center z-10 w-full">
+            
+            <p class="text-pink-600 text-lg mt-8 font-medium" style="font-size: 18px; font-weight: normal; text-decoration: none; font-style: normal; color: rgb(77, 77, 77); text-align: center;">Kazuma Wada</p>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute bottom-0 left-0">
+            <svg width="300" height="200" viewBox="0 0 300 200" fill="none">
+                <path d="M0 200C100 180 200 120 300 0V200H0Z" fill="url(#paint0_linear)"></path>
+                <defs>
+                    <linearGradient id="paint0_linear" x1="150" y1="0" x2="150" y2="200" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FF6B98" stop-opacity="0.1"></stop>
+                        <stop offset="1" stop-color="#895CFA" stop-opacity="0.2"></stop>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

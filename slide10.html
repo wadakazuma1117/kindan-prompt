@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロンプトフレームワーク徹底解剖: 実践的テンプレートの活用法</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+
+            position: relative;
+            background: linear-gradient(135deg, #fff0f7 0%, #f0f7ff 100%);
+        }
+        .title {
+            font-weight: 800;
+            background: linear-gradient(90deg, #ff6b6b 0%, #6b5bff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        .framework-box {
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 8px;
+        }
+        .fukabori {
+            background-color: #ffeff7;
+            border-left: 5px solid #ff8eb4;
+        }
+        .shichiri {
+            background-color: #eef6ff;
+            border-left: 5px solid #6ba5ff;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #a0aec0;
+            font-family: 'Courier New', monospace;
+            padding: 8px;
+            margin: 8px 0;
+            font-size: 0.75rem;
+        }
+        .comparison-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .comparison-table th {
+            background-color: #f0f7ff;
+            padding: 6px 8px;
+            font-weight: 600;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .comparison-table td {
+            padding: 6px 8px;
+            border-bottom: 1px solid #e2e8f0;
+            background-color: white;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .highlight-text {
+            background: linear-gradient(transparent 70%, #ffe0e9 70%);
+            display: inline;
+        }
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+        .tip-icon {
+            flex-shrink: 0;
+            margin-right: 8px;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide flex flex-col px-12 py-8">
+        <!-- Header with title -->
+        <div class="mb-4">
+            <h1 class="title text-4xl mb-1">8.プロンプトフレームワーク徹底解剖: 実践的テンプレートの活用法</h1>
+            <p class="text-gray-600 italic text-lg">
+                体系化されたプロンプトフレームワークで、AIの能力を安定して高レベルで引き出す。フレームワーク選択の指針と実践例。
+            </p>
+        </div>
+        
+        <!-- Main content area - Top section with frameworks -->
+        <div class="flex flex-1 gap-6 mb-4">
+            <!-- Left column: Fukabori-style framework -->
+            <div class="w-1/2">
+                <div class="card p-5 h-full flex flex-col">
+                    <div class="flex items-center mb-2">
+                        <div class="bg-pink-100 rounded-full p-2 mr-3">
+                            <i class="fas fa-magic text-pink-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-pink-600">深津式プロンプト: シンプル＆効果的</h3>
+                    </div>
+                    
+                    <div class="framework-box fukabori mb-3">
+                        <div class="font-bold text-pink-600 mb-1">【基本構造】: 4つのセクション</div>
+                        <ul class="text-sm text-gray-700 space-y-1 pl-5 list-disc">
+                            <li><span class="font-semibold">#命令書:</span> AIに与える役割（ペルソナ）とタスクの概要</li>
+                            <li><span class="font-semibold">#制約条件:</span> 出力に関する具体的な条件（文字数、トーン、含めるべきキーワードなど）</li>
+                            <li><span class="font-semibold">#入力文:</span> AIが処理する具体的な情報やテーマ</li>
+                            <li><span class="font-semibold">#出力文:</span> 期待する出力形式の指示</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="text-sm font-semibold text-pink-600 mb-1">【応用テクニック】</div>
+                    
+                    <div class="mb-2">
+                        <div class="font-bold text-sm mb-1">① 深津式システム2 (逆質問)</div>
+                        <p class="text-xs text-gray-700">
+                            プロンプトの最後に追加: <span class="highlight-text">「このタスクで最高の結果を出すために、追加の情報や明確化が必要な点があれば、遠慮なく質問してください。」</span>
+                        </p>
+                        <p class="text-xs text-gray-600 italic">
+                            これにより、AIが指示内容に不明確な点や不足情報がある場合、具体的な質問を投げかけるようになる。
+                        </p>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <div class="font-bold text-sm mb-1">② ベストプラクティス質問法</div>
+                        <p class="text-xs text-gray-700">
+                            タスクを依頼する前に、まずAI自身に<span class="highlight-text">「そのタスクを成功させるためのベストプラクティスは何か？」</span>と尋ね、その回答を次のプロンプトの「#制約条件」に組み込む。
+                        </p>
+                    </div>
+                    
+                    <div class="code-block mt-1">
+                        <div class="font-bold text-gray-700 mb-1">【実際のプロンプト例】</div>
+                        <pre class="text-xs text-gray-800 whitespace-pre-wrap">#命令書
+あなたはSEO分析の専門家です。以下のWebサイトについて分析してください。
+
+#制約条件
+- 分析は5つの重要な観点から行う
+- 各観点について100字以内で具体的な改善点を示す
+- 専門用語には簡潔な説明を付け加える
+
+#入力文
+[Webサイトの情報とURLなど]
+
+#出力文
+箇条書きでまとめ、最後に総評と優先的に取り組むべき施策を3つ提案してください。
+
+このタスクで最高の結果を出すために、追加の情報が必要であれば質問してください。</pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right column: Shichiri-style framework -->
+            <div class="w-1/2">
+                <div class="card p-5 h-full flex flex-col">
+                    <div class="flex items-center mb-2">
+                        <div class="bg-blue-100 rounded-full p-2 mr-3">
+                            <i class="fas fa-tasks text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-600">七里式プロンプト: 詳細＆高度</h3>
+                    </div>
+                    
+                    <div class="framework-box shichiri mb-3">
+                        <div class="font-bold text-blue-600 mb-1">【「8+1の公式」】: 9つの構成要素</div>
+                        <ul class="text-xs text-gray-700 space-y-1 pl-5 list-disc">
+                            <li><span class="font-semibold">#前提条件:</span> タイトル、依頼者条件、制作者条件、目的と目標、リソース、評価基準、明確化の要件</li>
+                            <li><span class="font-semibold">#対象プロファイル:</span> 生成されるコンテンツのターゲット読者や利用者の詳細</li>
+                            <li><span class="font-semibold">#参考情報:</span> コンテンツ作成に役立つ具体的なリソース</li>
+                            <li><span class="font-semibold">#実行指示:</span> 名詞と動詞と形容詞を使った具体的行動指示</li>
+                            <li><span class="font-semibold">#出力形式(文章):</span> 箇条書き、レポート形式など</li>
+                            <li><span class="font-semibold">#出力形式(形):</span> HTML、JSON、表形式など</li>
+                            <li><span class="font-semibold">#スタイル:</span> ビジネス風、カジュアルなど</li>
+                            <li><span class="font-semibold">#追加指示:</span> 精度向上のための補足情報</li>
+                            <li><span class="font-semibold">#(+1)補足質問:</span> 曖昧な点の確認</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <div class="font-bold text-sm text-blue-600 mb-1">【特徴】: 中上級者向けフレームワーク</div>
+                        <ul class="text-xs text-gray-700 space-y-1 pl-5 list-disc">
+                            <li>設定項目が多岐にわたり、AIの解釈の余地を極力排除</li>
+                            <li>AIの出力のブレを最小限に抑え、安定して高品質な結果を提供</li>
+                            <li>SEO記事、セールスレター、専門的なレポート作成に特に適している</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <div class="font-bold text-sm mb-1">【七里式の本質】</div>
+                        <p class="text-xs text-gray-700">
+                            AIへの指示における<span class="highlight-text">「曖昧さの排除」</span>にある。タスクの背景、目的、ターゲット、AIの役割、参照情報、具体的な指示内容、出力形式まで全要素を構造化して提供。
+                        </p>
+                    </div>
+                    
+                    <div class="code-block text-xs overflow-auto" style="max-height: 150px;">
+                        <div class="font-bold text-gray-700 mb-1">【実際のプロンプト例】</div>
+                        <pre class="text-xs text-gray-800 whitespace-pre-wrap">#前提条件
+タイトル: AI活用ベストプラクティス研究レポート
+依頼者条件: マーケティング部門の責任者。AIツールの導入検討中。
+制作者条件: AIと最新技術に詳しい専門家。具体的な事例に基づいた提案ができる。
+目的と目標: 会社全体でAI活用を推進するための説得力のある提案書を作成。
+リソース: マーケティング部門の予算、既存の分析ツール、社内データ
+評価基準: 具体性、実現可能性、費用対効果、導入のしやすさ
+
+#対象プロファイル
+経営陣（50-60代、保守的、数値での効果を重視）
+IT部門（30-40代、技術トレンドに詳しいが、セキュリティ面を懸念）
+
+#参考情報
+業界: 小売業（店舗とECのハイブリッド）
+競合状況: 大手オンラインモールとの競争が激化
+現在の課題: 顧客データの活用不足、マーケティング施策の効果測定の遅延
+
+#実行指示
+AI技術の特定分野（マーケティング自動化、顧客分析、需要予測）について、導入メリット、コスト、ROI、実装プロセス、成功事例を含む包括的な提案書を作成する
+
+#出力形式(文章)
+エグゼクティブサマリー
+課題分析
+ソリューション提案（3つ）
+実装計画
+予算と効果予測
+次のステップ
+
+#出力形式(形)
+プレゼンテーション資料を想定した構造化テキスト
+
+#スタイル
+ビジネス向け、データ重視、簡潔明瞭、専門用語は解説付き
+
+#追加指示
+各提案には必ず他社の成功事例を1つ以上含める
+セキュリティ面の懸念に対する対応策を明記する
+経営陣が気にする投資対効果を数値で明示する</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom section with comparison and tips -->
+        <div class="flex gap-6">
+            <!-- Left column: Framework comparison table -->
+            <div class="w-1/2">
+                <div class="card p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-purple-100 rounded-full p-2 mr-3">
+                            <i class="fas fa-balance-scale text-purple-600"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-purple-600">フレームワーク選択のポイント</h3>
+                    </div>
+                    
+                    <table class="comparison-table text-xs">
+                        <thead>
+                            <tr>
+                                <th class="bg-pink-100 text-pink-700">向いているケース（深津式）</th>
+                                <th class="bg-blue-100 text-blue-700">向いているケース（七里式）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>日常的なタスク処理</td>
+                                <td>重要なビジネス文書作成</td>
+                            </tr>
+                            <tr>
+                                <td>アイデア出しや発想のサポート</td>
+                                <td>専門性の高いコンテンツ制作</td>
+                            </tr>
+                            <tr>
+                                <td>手早く簡潔な文章を生成したい</td>
+                                <td>出力の品質を徹底的に追求したい</td>
+                            </tr>
+                            <tr>
+                                <td>AIとの対話を通じた精度向上を重視</td>
+                                <td>複数回にわたる利用で一貫性が必要</td>
+                            </tr>
+                            <tr>
+                                <td>プロンプト作成の時間を短縮したい</td>
+                                <td>複雑なプロジェクトの要件整理</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Right column: Framework comparison detailed -->
+            <div class="w-1/2">
+                <div class="card p-4 h-full flex flex-col">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-green-100 rounded-full p-2 mr-3">
+                            <i class="fas fa-check-double text-green-600"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-green-600">実装のコツ</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="tip-item">
+                            <div class="tip-icon bg-yellow-100 rounded-full p-1">
+                                <i class="fas fa-lightbulb text-yellow-500 text-xs"></i>
+                            </div>
+                            <p class="text-xs text-gray-700">タスクの複雑さに応じてフレームワークを選択</p>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon bg-blue-100 rounded-full p-1">
+                                <i class="fas fa-puzzle-piece text-blue-500 text-xs"></i>
+                            </div>
+                            <p class="text-xs text-gray-700">必要に応じて複数フレームワークの要素を組み合わせる</p>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon bg-green-100 rounded-full p-1">
+                                <i class="fas fa-save text-green-500 text-xs"></i>
+                            </div>
+                            <p class="text-xs text-gray-700">テンプレートを作成しておき、繰り返し利用する</p>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon bg-red-100 rounded-full p-1">
+                                <i class="fas fa-chart-line text-red-500 text-xs"></i>
+                            </div>
+                            <p class="text-xs text-gray-700">結果を継続的に評価し、フレームワークを最適化</p>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon bg-purple-100 rounded-full p-1">
+                                <i class="fas fa-vial text-purple-500 text-xs"></i>
+                            </div>
+                            <p class="text-xs text-gray-700">同じタスクで両方を試し、効果を比較する</p>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon bg-pink-100 rounded-full p-1">
+                                <i class="fas fa-tools text-pink-500 text-xs"></i>
+                            </div>
+                            <p class="text-xs text-gray-700">各フレームワークの強みを理解し使い分ける</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="flex items-center mb-2">
+                            <div class="bg-indigo-100 rounded-full p-1 mr-2">
+                                <i class="fas fa-star text-indigo-500 text-xs"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-indigo-600">プロンプトフレームワーク比較表</h4>
+                        </div>
+                        
+                        <div class="overflow-auto" style="max-height: 150px;">
+                            <table class="comparison-table text-xs w-full">
+                                <thead>
+                                    <tr>
+                                        <th>フレームワーク</th>
+                                        <th>特徴</th>
+                                        <th>最適な使用場面</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-semibold text-pink-600">深津式</td>
+                                        <td>シンプル、導入容易</td>
+                                        <td>日常的なタスク、アイデア出し、一般的な文章作成</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold text-blue-600">七里式</td>
+                                        <td>詳細、安定性</td>
+                                        <td>SEO記事作成、セールスレター、専門的なレポート作成</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold text-green-600">CoT(思考連鎖)</td>
+                                        <td>推論向上、思考過程可視化</td>
+                                        <td>問題解決、論理的分析、複雑な計画立案</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold text-purple-600">メタ認知</td>
+                                        <td>自己改善、多角的検討</td>
+                                        <td>高度な分析、クオリティ重視のコンテンツ生成</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-auto text-center">
+                        <p class="italic text-indigo-600 text-xs">
+                            フレームワークは「AIとの効果的な対話」を構造化するための設計図です。
+                            目的に合わせて適切に選択し、カスタマイズすることで、AIの真の能力を引き出せます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

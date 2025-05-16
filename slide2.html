@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>禁断のプロンプト集：目次</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+
+            position: relative;
+            background: linear-gradient(135deg, #ffeef8 0%, #f0f7ff 50%, #e8f5ff 100%);
+        }
+        .title {
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff6b98 0%, #895cfa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .subtitle {
+            font-weight: 700;
+            color: #6c5ce7;
+        }
+        .toc-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .toc-item {
+            transition: all 0.2s ease;
+        }
+        .toc-item:hover {
+            transform: translateX(5px);
+            background-color: rgba(255, 107, 152, 0.1);
+        }
+        .icon-bg {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .light-beam {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,217,244,0.4) 0%, rgba(255,217,244,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide flex flex-col px-20 py-12 relative">
+        <!-- Light beams -->
+        <div class="light-beam" style="top: -250px; left: -200px;"></div>
+        <div class="light-beam" style="bottom: -300px; right: -200px;"></div>
+        
+        <!-- Header -->
+        <div class="z-10 mb-8 text-center">
+            <h1 class="title text-5xl mb-3">禁断のプロンプト：目次</h1>
+            <p class="subtitle text-2xl">AIの真の力を解き放つ実践ガイド</p>
+        </div>
+        
+        <!-- Main content -->
+        <div class="flex-1 z-10">
+            <div class="toc-card p-8">
+                <div class="grid grid-cols-2 gap-x-12 gap-y-4">
+                    <!-- Left column -->
+                    <div>
+                        <!-- Item 1 -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-blue-100 mr-4">
+                                <i class="fas fa-book text-blue-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">1.</span>
+                                <span class="text-gray-800 font-medium"> はじめに：</span>
+                                <span class="text-gray-700">プロンプトエンジニアリングの重要性</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-pink-100 mr-4">
+                                <i class="fas fa-mask text-pink-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">2.</span>
+                                <span class="text-gray-800 font-medium"> 型破りペルソナ術：</span>
+                                <span class="text-gray-700">AIに「魂」をインストールする</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 3 -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-red-100 mr-4">
+                                <i class="fas fa-heartbeat text-red-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">3.</span>
+                                <span class="text-gray-800 font-medium"> 感情を揺さぶるプロンプト：</span>
+                                <span class="text-gray-700">AIに「心」を宿らせる方法</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 4 -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-green-100 mr-4">
+                                <i class="fas fa-cogs text-green-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">4.</span>
+                                <span class="text-gray-800 font-medium"> 思考をハックする：</span>
+                                <span class="text-gray-700">高度プロンプト戦術</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 5 -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-yellow-100 mr-4">
+                                <i class="fas fa-brain text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">5.</span>
+                                <span class="text-gray-800 font-medium"> メタ認知プロンプト：</span>
+                                <span class="text-gray-700">AI自身に答えを「進化」させる技術</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 6 -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-purple-100 mr-4">
+                                <i class="fas fa-lightbulb text-purple-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">6.</span>
+                                <span class="text-gray-800 font-medium"> 水平思考プロンプト：</span>
+                                <span class="text-gray-700">AIから奇抜なアイデアを引き出す</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right column -->
+                    <div>
+                        <!-- Item 7 -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-indigo-100 mr-4">
+                                <i class="fas fa-balance-scale text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">7.</span>
+                                <span class="text-gray-800 font-medium"> 逆説・矛盾プロンプト：</span>
+                                <span class="text-gray-700">AIの論理限界に挑戦</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 8 -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-blue-100 mr-4">
+                                <i class="fas fa-sitemap text-blue-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">8.</span>
+                                <span class="text-gray-800 font-medium"> プロンプトフレームワーク：</span>
+                                <span class="text-gray-700">実践的テンプレートの活用法</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 9 - UPDATED -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-blue-100 mr-4">
+                                <i class="fas fa-robot text-blue-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">9.</span>
+                                <span class="text-gray-800 font-medium"> AIを育てる方法：</span>
+                                <span class="text-gray-700">カスタマイズされた長期的関係構築</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 10 -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-pink-100 mr-4">
+                                <i class="fas fa-lock text-pink-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">10.</span>
+                                <span class="text-gray-800 font-medium"> 未公開の禁断プロンプト集：</span>
+                                <span class="text-gray-700">限られた者だけが知るテクニック</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 11 - UPDATED -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-purple-100 mr-4">
+                                <i class="fas fa-chain text-purple-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">11.</span>
+                                <span class="text-gray-800 font-medium"> プロンプトチェイニング：</span>
+                                <span class="text-gray-700">複数プロンプトの連鎖で能力を最大化</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 12 -->
+                        <div class="toc-item flex items-center p-2 rounded-lg">
+                            <div class="icon-bg bg-green-100 mr-4">
+                                <i class="fas fa-map-signs text-green-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-purple-700 font-bold">12.</span>
+                                <span class="text-gray-800 font-medium"> 禁断のプロンプトマスター：</span>
+                                <span class="text-gray-700">実践のすすめ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer note -->
+        <div class="mt-8 flex justify-center items-center z-10">
+            <div class="bg-white bg-opacity-70 px-8 py-3 rounded-full shadow-md">
+                <div class="flex items-center">
+                    <i class="fas fa-magic text-pink-600 mr-3 text-xl"></i>
+                    <span class="text-gray-800 font-medium">生成AIを使いこなすための秘密の武器</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute bottom-0 left-0 z-0">
+            <svg width="300" height="150" viewBox="0 0 300 150" fill="none">
+                <path d="M0 150C100 135 200 90 300 0V150H0Z" fill="url(#paint0_linear)"></path>
+                <defs>
+                    <linearGradient id="paint0_linear" x1="150" y1="0" x2="150" y2="150" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FF6B98" stop-opacity="0.1"></stop>
+                        <stop offset="1" stop-color="#895CFA" stop-opacity="0.2"></stop>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

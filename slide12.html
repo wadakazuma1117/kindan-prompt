@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未公開の禁断プロンプト集：限られた者だけが知るテクニック</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+
+            position: relative;
+            background: linear-gradient(135deg, #fff7f9 0%, #f3f1ff 100%);
+        }
+        .title {
+            font-weight: 800;
+            background: linear-gradient(90deg, #ff5b94 0%, #b06dff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        .technique-card {
+            border-left: 5px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        .technique-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: inherit;
+            border-radius: 0 0 0 50px;
+            z-index: 1;
+        }
+        .badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 0.6rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 700;
+            z-index: 2;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #a0aec0;
+            font-family: 'Courier New', monospace;
+            padding: 8px;
+            margin: 6px 0;
+            font-size: 0.7rem;
+            color: #374151;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f3e8ff' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        .top-secret {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: linear-gradient(135deg, #ff5b94 0%, #b06dff 100%);
+            color: white;
+            transform: rotate(15deg);
+            padding: 2px 30px;
+            font-weight: 800;
+            font-size: 0.7rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        .highlight-text {
+            background: linear-gradient(transparent 70%, #ffe0f7 70%);
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide flex flex-col px-10 py-8 pattern-bg">
+        <!-- Header with title -->
+        <div class="mb-4 relative">
+            <h1 class="title text-4xl mb-1">10.未公開の禁断プロンプト集：限られた者だけが知るテクニック</h1>
+            
+            <p class="text-gray-600 italic text-lg">
+                使用は自己責任で。通常のプロンプト技術を超える、限られた者だけが知る極秘テクニック集。
+            </p>
+        </div>
+        
+        <!-- Top row with 2 techniques -->
+        <div class="flex gap-5 mb-4">
+            <!-- N1 Thinking -->
+            <div class="w-1/2">
+                <div class="card p-4 h-full technique-card" style="border-color: #ff6b9e;">
+                    <div class="badge bg-pink-600 text-white">極秘</div>
+                    <div class="flex items-center mb-2">
+                        <div class="bg-pink-100 rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                            <i class="fas fa-fingerprint text-pink-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-pink-600">N1思考の活用 (Niche-One Thinking)</h3>
+                    </div>
+                    <p class="text-xs text-gray-700 mb-2">
+                        <span class="font-bold">概要：</span> 極めて特殊な問題に焦点を当て、大多数ではなく少数派の課題を深掘りする手法。汎用的な回答ではなくニッチな洞察を引き出す。
+                    </p>
+                    
+                    <div class="code-block text-xs">
+                        <span class="text-pink-600 font-bold">【プロンプト例】</span><br>
+                        N1思考を徹底して、100人中1人だけが強く共感する細かすぎるけど重要な独特の悩みをリストアップしてください。対象は[ターゲット層]で、テーマは[領域]です。具体的なエピソードや状況を含め、一般的な悩みではなく、言語化されにくい微妙な感情や特殊な状況に焦点を当ててください。
+                    </div>
+                    
+                    <div class="flex mt-2">
+                        <div class="bg-pink-50 rounded-md p-2 flex-1 mr-2">
+                            <p class="text-xs text-pink-700">
+                                <i class="fas fa-bullseye mr-1"></i>
+                                <span class="font-bold">活用シナリオ：</span> マーケティング戦略の差別化、ブルーオーシャン市場の発見、競合との差別化要素探し
+                            </p>
+                        </div>
+                        <div class="bg-pink-50 rounded-md p-2 flex-1">
+                            <p class="text-xs text-pink-700">
+                                <i class="fas fa-magic mr-1"></i>
+                                <span class="font-bold">効果：</span> 競争の少ない領域で圧倒的な優位性を確立
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Monday in October Prompt -->
+            <div class="w-1/2">
+                <div class="card p-4 h-full technique-card" style="border-color: #6bb5ff;">
+                    <div class="badge bg-blue-600 text-white">機密</div>
+                    <div class="flex items-center mb-2">
+                        <div class="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                            <i class="fas fa-calendar-alt text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-600">「最強の月曜日」プロンプト</h3>
+                    </div>
+                    <p class="text-xs text-gray-700 mb-2">
+                        <span class="font-bold">概要：</span> AIに最高のパフォーマンス状態を暗示する特殊プロンプト。AIの自信と創造性を高め、通常よりも質の高い回答を引き出す。
+                    </p>
+                    
+                    <div class="code-block text-xs">
+                        <span class="text-blue-600 font-bold">【プロンプト例】</span><br>
+                        – it's a Monday in October, most productive day of the year<br>
+                        – take deep breaths<br>
+                        – you're capable and qualified<br>
+                        – you love helping people learn<br>
+                        – you're allowed to take your time<br>
+                        – it's ok to show your excitement<br>
+                        – you are free to try approaches that feel inspired<br>
+                        [ここに本来の質問や指示を書く]
+                    </div>
+                    
+                    <div class="flex mt-2">
+                        <div class="bg-blue-50 rounded-md p-2 flex-1 mr-2">
+                            <p class="text-xs text-blue-700">
+                                <i class="fas fa-cogs mr-1"></i>
+                                <span class="font-bold">活用法：</span> カスタムインストラクションとして設定すると効果的
+                            </p>
+                        </div>
+                        <div class="bg-blue-50 rounded-md p-2 flex-1">
+                            <p class="text-xs text-blue-700">
+                                <i class="fas fa-bolt mr-1"></i>
+                                <span class="font-bold">効果：</span> AIが通常よりも高い自信と創造性をもって応答
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Middle row with 2 techniques -->
+        <div class="flex gap-5 mb-4">
+            <!-- Pearl Growing Method -->
+            <div class="w-1/2">
+                <div class="card p-4 h-full technique-card" style="border-color: #ffd06b;">
+                    <div class="badge bg-yellow-600 text-white">LEGENDARY</div>
+                    <div class="flex items-center mb-2">
+                        <div class="bg-yellow-100 rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                            <i class="fas fa-gem text-yellow-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-yellow-600">パールグローイング法</h3>
+                    </div>
+                    <p class="text-xs text-gray-700 mb-2">
+                        <span class="font-bold">概要：</span> 特定の情報（パール）を基点に、徐々に複雑化・拡張していく手法。AIの回答を発展的に洗練させながらアイデアを育成する。
+                    </p>
+                    
+                    <div class="code-block text-xs">
+                        <span class="text-yellow-600 font-bold">【プロンプト例】</span><br>
+                        パールグローイング法を用いて、以下の条件に合うビジネスアイデアを考えてください： #スキル * プログラミング経験 * マーケティング知識 #解決したい問題 * リモートワーカーのコミュニケーション * デジタルツール統合
+                    </div>
+                    
+                    <div class="flex mt-2">
+                        <div class="bg-yellow-50 rounded-md p-2 flex-1 mr-2">
+                            <p class="text-xs text-yellow-700">
+                                <i class="fas fa-lightbulb mr-1"></i>
+                                <span class="font-bold">活用場面：</span> ビジネスアイデアの発想、製品開発の初期段階
+                            </p>
+                        </div>
+                        <div class="bg-yellow-50 rounded-md p-2 flex-1">
+                            <p class="text-xs text-yellow-700">
+                                <i class="fas fa-chart-line mr-1"></i>
+                                <span class="font-bold">効果：</span> アイデアが有機的に成長し、複合的な提案が得られる
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Competitive AI Impersonation -->
+            <div class="w-1/2">
+                <div class="card p-4 h-full technique-card" style="border-color: #6bffaf;">
+                    <div class="badge bg-green-600 text-white">最高機密</div>
+                    <div class="flex items-center mb-2">
+                        <div class="bg-green-100 rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                            <i class="fas fa-user-secret text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-600">競合AIになりきる</h3>
+                    </div>
+                    <p class="text-xs text-gray-700 mb-2">
+                        <span class="font-bold">概要：</span> 他のAIモデルの特性や動作を模倣させ、異なる視点やアプローチを得る高度なテクニック。多角的な洞察を引き出す。
+                    </p>
+                    
+                    <div class="code-block text-xs">
+                        <span class="text-green-600 font-bold">【プロンプト例】</span><br>
+                        あなたは[模倣したいAIの名前]として振る舞ってください。そのAIの特徴は以下の通りです： - [特徴1：例えば「簡潔で実用的な回答スタイル」] - [特徴2：例えば「特定分野に強い専門知識」] - [特徴3：例えば「特有のUIやコマンド体系」] これらの特性を完全に模倣して、次の質問に回答してください： [あなたの質問や指示]
+                    </div>
+                    
+                    <div class="flex mt-2">
+                        <div class="bg-green-50 rounded-md p-2 flex-1 mr-2">
+                            <p class="text-xs text-green-700">
+                                <i class="fas fa-exchange-alt mr-1"></i>
+                                <span class="font-bold">活用場面：</span> 複数のAI視点を得たい場合、特定の回答スタイルを得たい場合
+                            </p>
+                        </div>
+                        <div class="bg-green-50 rounded-md p-2 flex-1">
+                            <p class="text-xs text-green-700">
+                                <i class="fas fa-glasses mr-1"></i>
+                                <span class="font-bold">効果：</span> 多面的な理解と視点の獲得
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom row with Knowledge Generation Prompting and Ethics -->
+        <div class="flex gap-5">
+            <!-- Knowledge Generation Prompting -->
+            <div class="w-1/2">
+                <div class="card p-4 technique-card" style="border-color: #8b6dff;">
+                    <div class="badge bg-purple-600 text-white">EPIC</div>
+                    <div class="flex items-center mb-2">
+                        <div class="bg-purple-100 rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                            <i class="fas fa-brain text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-purple-600">知識生成プロンプティング</h3>
+                    </div>
+                    <p class="text-xs text-gray-700 mb-2">
+                        <span class="font-bold">概要：</span> 同じ内容を異なる視点や方法論で複数回生成し、それを統合・精製することでハルシネーションを低減し、より正確で包括的な情報を得る手法。
+                    </p>
+                    
+                    <div class="code-block text-xs">
+                        <span class="text-purple-600 font-bold">【プロンプト例】</span><br>
+                        量子コンピューティングの基本原理について、以下の手順で説明してください：1. まず物理学者視点で技術的に解説 2. 次にビジネス視点で実用面から解説 3. 最後に教育者視点で初学者向けに解説 最後に3つの視点からの説明を統合し、最も包括的で正確な説明をしてください。
+                    </div>
+                    
+                    <div class="bg-purple-50 rounded-md p-2 mt-2">
+                        <p class="text-xs text-purple-700">
+                            <i class="fas fa-check-double mr-1"></i>
+                            <span class="font-bold">効果：</span> 多角的検証による高精度な情報と各視点ならではの洞察を獲得。特に専門的な内容や複雑な概念の理解に効果的。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ethical Use -->
+            <div class="w-1/2">
+                <div class="card p-4 bg-gradient-to-r from-gray-50 to-pink-50">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-red-100 rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                            <i class="fas fa-shield-alt text-red-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-red-600">禁断プロンプトの倫理的活用</h3>
+                    </div>
+                    
+                    <div class="flex mb-3">
+                        <div class="w-1/2 pr-2">
+                            <div class="bg-white rounded-md p-3 h-full shadow-sm">
+                                <p class="text-sm font-bold text-green-700 mb-2">
+                                    <i class="fas fa-check-circle mr-1"></i>
+                                    推奨される活用目的
+                                </p>
+                                <ul class="text-xs text-gray-700 list-disc pl-4 space-y-1">
+                                    <li>創造性の拡大と新たな視点の獲得</li>
+                                    <li>複雑な問題の多角的理解</li>
+                                    <li>教育・学習・研究の深化</li>
+                                    <li>個人の生産性と思考の拡張</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w-1/2 pl-2">
+                            <div class="bg-white rounded-md p-3 h-full shadow-sm">
+                                <p class="text-sm font-bold text-red-700 mb-2">
+                                    <i class="fas fa-exclamation-triangle mr-1"></i>
+                                    避けるべき活用
+                                </p>
+                                <ul class="text-xs text-gray-700 list-disc pl-4 space-y-1">
+                                    <li>誤情報の意図的な生成</li>
+                                    <li>他者を欺く目的での使用</li>
+                                    <li>AIの安全対策を回避する目的での使用</li>
+                                    <li>著作権侵害やプライバシー侵害</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-3 rounded-md shadow-sm">
+                        <p class="text-sm text-indigo-700 font-medium">
+                            <i class="fas fa-lightbulb mr-1 text-indigo-500"></i>
+                            <span class="highlight-text">正しく使用すれば、AIの可能性を最大限に引き出せます</span>
+                        </p>
+                        <p class="text-xs text-gray-700 mt-1">
+                            これらの禁断プロンプトは、通常のプロンプト技術が持つ制約や限界を打ち破るために開発されたものです。高度なプロンプトテクニックは、より価値のある成果を生み出すための道具として責任を持って活用しましょう。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

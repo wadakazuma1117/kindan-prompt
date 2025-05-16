@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>思考をハックする高度プロンプト戦術</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+
+            position: relative;
+            background: linear-gradient(135deg, #f0f8ff 0%, #f9f2ff 100%);
+        }
+        .title {
+            font-weight: 800;
+            background: linear-gradient(90deg, #6c5ce7 0%, #0984e3 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+        .prompt-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid #6c5ce7;
+            font-family: 'Courier New', monospace;
+        }
+        .effect-box {
+            background-color: #f1f9fe;
+            border-radius: 8px;
+            border-left: 5px solid #0984e3;
+        }
+        .highlight-text {
+            background: linear-gradient(transparent 70%, #d3d4ff 70%);
+            display: inline;
+        }
+        .concept-box {
+            background-color: #f0f4ff;
+            border-radius: 8px;
+            border-left: 5px solid #4834d4;
+        }
+        .technique-badge {
+            background-color: #6c5ce7;
+            color: white;
+            font-size: 0.7em;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide flex flex-col px-12 py-8">
+        <!-- Header with title -->
+        <div class="mb-4">
+            <h1 class="title text-4xl mb-1">4.思考をハックする高度プロンプト戦術</h1>
+            <p class="text-gray-600 italic text-lg">
+                AIの思考プロセスに介入し、複雑な問題解決や推論能力を飛躍的に向上させるテクニック
+            </p>
+        </div>
+        
+        <!-- Introduction to CoT -->
+        <div class="mb-4">
+            <div class="bg-indigo-100 rounded-lg p-4 flex items-center">
+                <div class="bg-indigo-200 rounded-full p-3 mr-3">
+                    <i class="fas fa-brain text-indigo-600 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-indigo-700">思考連鎖(CoT) の「禁断」活用法</h2>
+                    <p class="text-gray-700">複雑な問題も一刀両断: AIに思考プロセスを段階的に説明させることで、回答精度を飛躍的に向上</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main content area - Top row -->
+        <div class="flex flex-1 gap-6 mb-4">
+            <!-- Left column: Basic CoT -->
+            <div class="w-1/3">
+                <div class="card p-5 h-full flex flex-col">
+                    <div class="flex items-center mb-2">
+                        <div class="bg-blue-100 rounded-full p-2 mr-3">
+                            <i class="fas fa-list-ol text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-600">基本CoTの威力<span class="technique-badge">BASIC</span></h3>
+                    </div>
+                    
+                    <p class="text-gray-700 text-sm mb-3">
+                        プロンプト末尾に「ステップバイステップで考えてみましょう」や「段階的に説明してください」を追加するだけで、AIの推論能力が劇的に向上。
+                    </p>
+                    
+                    <div class="prompt-box p-3 mb-3">
+                        <div class="font-bold text-gray-700 mb-1 text-xs">【問題例】</div>
+                        <p class="text-xs text-gray-800 leading-relaxed">
+                            ある中小企業のオンラインストアの売上が過去3ヶ月間で20%減少しています。考えられる主な原因を3つ挙げ、それぞれの原因に対する具体的な改善策を提案してください。<span class="highlight-text">ステップバイステップで考えてみましょう。</span>
+                        </p>
+                        <div class="mt-2 border-t border-gray-200 pt-2">
+                            <p class="text-xs text-gray-600 italic">
+                                <span class="font-bold">AIの回答例（一部）：</span><br>
+                                <span class="text-green-700">「ステップ1: 売上減少の可能性がある原因を洗い出す」</span><br>
+                                - ウェブサイトのユーザーエクスペリエンス問題<br>
+                                - マーケティング効果の低下<br>
+                                - 競合他社の台頭<br>
+                                <span class="text-green-700">「ステップ2: 各原因の具体的な症状を検証する」</span><br>
+                                - ウェブサイトの場合：アクセス解析データを確認すると...
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="effect-box p-3 mt-auto">
+                        <div class="font-bold text-blue-600 mb-1 text-xs">【効果】</div>
+                        <p class="text-xs text-gray-700">
+                            AIに複雑な問題を小さな部分に分解させ、各ステップに集中させることで、最終的な回答の質と論理性を高めます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Middle column: Few-Shot CoT -->
+            <div class="w-1/3">
+                <div class="card p-5 h-full flex flex-col">
+                    <div class="flex items-center mb-2">
+                        <div class="bg-purple-100 rounded-full p-2 mr-3">
+                            <i class="fas fa-project-diagram text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-purple-600">Few-Shot CoT<span class="technique-badge">ADVANCED</span></h3>
+                    </div>
+                    
+                    <p class="text-gray-700 text-sm mb-3">
+                        プロンプト内に「質問とそれに対する思考プロセスと回答の例」を提示し、AIに推論パターンを学習させる高度テクニック。
+                    </p>
+                    
+                    <div class="prompt-box p-3 mb-3 text-xs">
+                        <div class="font-bold text-gray-700 mb-1">【Q】</div>
+                        <p class="text-gray-800 leading-relaxed">
+                            先月のウェブサイト訪問者数は10,000人、コンバージョン率は2%でした。今月の訪問者数は12,000人、コンバージョン率は2.5%です。コンバージョン数の変化を計算し、その要因を推測してください。
+                        </p>
+                        <div class="font-bold text-gray-700 mt-2 mb-1">【A】思考プロセス：</div>
+                        <ul class="list-disc pl-4 text-gray-800 space-y-1">
+                            <li>先月のコンバージョン数: 10,000人 * 2% = 200件</li>
+                            <li>今月のコンバージョン数: 12,000人 * 2.5% = 300件</li>
+                            <li>コンバージョン数の変化: 300件 - 200件 = 100件増加</li>
+                            <li>要因推測: 訪問者数の増加とコンバージョン率の改善が複合的に影響した...</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="effect-box p-3 mt-auto">
+                        <div class="font-bold text-blue-600 mb-1 text-xs">【効果】</div>
+                        <p class="text-xs text-gray-700">
+                            具体的な思考例をAIに示すことで、複雑な推論パターンを効率的に学習させ、類似問題での推論精度を向上させる。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right column: Zero-Shot CoT -->
+            <div class="w-1/3">
+                <div class="card p-5 h-full flex flex-col">
+                    <div class="flex items-center mb-2">
+                        <div class="bg-pink-100 rounded-full p-2 mr-3">
+                            <i class="fas fa-magic text-pink-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-pink-600">Zero-Shot CoT<span class="technique-badge">ULTRA</span></h3>
+                    </div>
+                    
+                    <p class="text-gray-700 text-sm mb-3">
+                        「Take a deep breath and work on this problem step-by-step.」という一見奇妙なフレーズが、特に複雑な問題においてAIの精度を向上させる。
+                    </p>
+                    
+                    <div class="prompt-box p-3 mb-3">
+                        <div class="font-bold text-gray-700 mb-1 text-xs">【命令例】</div>
+                        <p class="text-xs text-gray-800 leading-relaxed">
+                            以下の市場動向データ、消費者行動の変化、競合他社の戦略レポートを総合的に分析し、今後5年間で最も成長が期待できるニッチ市場を3つ特定してください。[データ省略]
+                            <span class="highlight-text">Take a deep breath and work on this problem step-by-step.</span>
+                        </p>
+                        <div class="mt-2 border-t border-gray-200 pt-2">
+                            <p class="text-xs text-gray-600 italic">
+                                <span class="font-bold">研究結果：</span><br>
+                                Kojima et al. (2022)の研究では、この「深呼吸して」フレーズを追加するだけで、複雑な数学的問題の解決精度が17.9%から78.7%へと劇的に向上しました。単純な一言がAIの思考プロセスを根本的に変えるという驚くべき発見です。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="effect-box p-3 mt-auto">
+                        <div class="font-bold text-blue-600 mb-1 text-xs">【効果】</div>
+                        <p class="text-xs text-gray-700">
+                            この魔法のような一言でAIに「落ち着いて考える」時間を与え、性急な結論ではなく、より慎重で段階的な思考を促進します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom row: Essence of CoT and Practical Tips -->
+        <div class="flex gap-6">
+            <!-- CoT Essence -->
+            <div class="w-1/2">
+                <div class="card p-6 bg-indigo-50">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-indigo-100 rounded-full p-2 mr-3">
+                            <i class="fas fa-lightbulb text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-indigo-700">CoTプロンプティングの本質</h3>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 rounded-full p-1 mr-2 flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-indigo-500 text-xs"></i>
+                            </div>
+                            <p class="text-sm text-gray-700">
+                                AIの<span class="highlight-text">「ワーキングメモリ」を擬似的に拡張</span>する
+                            </p>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 rounded-full p-1 mr-2 flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-indigo-500 text-xs"></i>
+                            </div>
+                            <p class="text-sm text-gray-700">
+                                複雑な指示や多段階の推論を正確に実行するための<span class="highlight-text">「思考の足場」を提供</span>
+                            </p>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 rounded-full p-1 mr-2 flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-indigo-500 text-xs"></i>
+                            </div>
+                            <p class="text-sm text-gray-700">
+                                各ステップを丁寧に処理させることで、<span class="highlight-text">網羅的で論理的な回答</span>を引き出す
+                            </p>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 rounded-full p-1 mr-2 flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-indigo-500 text-xs"></i>
+                            </div>
+                            <p class="text-sm text-gray-700">
+                                「深呼吸して」のようなフレーズは、AIに性急な結論を出さず、より<span class="highlight-text">慎重に考えるよう促す一種の「ペース調整」</span>として機能
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 bg-indigo-100 rounded-lg p-3">
+                        <p class="text-sm italic text-indigo-800">
+                            "CoTプロンプティングは、AIが解くべき問題を一口サイズに分解し、各ステップで信頼性の高い推論を行うための道しるべになります。"
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Practical Tips -->
+            <div class="w-1/2">
+                <div class="card p-6 h-full">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-green-100 rounded-full p-2 mr-3">
+                            <i class="fas fa-clipboard-list text-green-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-green-700">実践のコツ</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+                            <h4 class="font-bold text-green-800 mb-2">基本CoT <i class="fas fa-star text-yellow-500"></i></h4>
+                            <p class="text-xs text-gray-700">
+                                単純・中程度の複雑さのタスクや、初めてCoTを試す場合に最適。「ステップバイステップで考えてください」の一言を追加するだけで効果を実感できます。
+                            </p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg border-l-4 border-purple-400">
+                            <h4 class="font-bold text-purple-800 mb-2">Few-Shot CoT <i class="fas fa-stars text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i></h4>
+                            <p class="text-xs text-gray-700">
+                                特殊な思考パターンが必要な場合や、AIに特定の推論方法を学ばせたい場合に使用。例を示すことで「型」を与えられます。
+                            </p>
+                        </div>
+                        <div class="bg-pink-50 p-3 rounded-lg border-l-4 border-pink-400">
+                            <h4 class="font-bold text-pink-800 mb-2">Zero-Shot CoT <i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i></h4>
+                            <p class="text-xs text-gray-700">
+                                複雑で多段階の推論が必要なタスクに。「Take a deep breath...」のフレーズを追加するだけで、思いがけない効果が得られます。
+                            </p>
+                        </div>
+                        <div class="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400">
+                            <h4 class="font-bold text-blue-800 mb-2">組み合わせ戦術 <i class="fas fa-crown text-yellow-500"></i></h4>
+                            <p class="text-xs text-gray-700">
+                                最大の効果を得るには、Few-Shot CoTでパターンを示した後に「深呼吸して」フレーズを追加する組み合わせが強力です。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-400">
+                        <div class="flex">
+                            <div class="mr-3 text-yellow-600">
+                                <i class="fas fa-lightbulb text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-yellow-800 mb-1">禁断のCoT極意</h4>
+                                <p class="text-xs text-gray-700">
+                                    AIに「これはあなたの思考プロセスを理解するための重要な課題です。解答の正確さよりも、思考の透明性を優先してください」と伝えると、AIはより詳細で探索的な思考過程を展開する傾向があります。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
