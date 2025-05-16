@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>禁断のプロンプト: 目次 - AIの真の力を解き放つ実践ガイド</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: linear-gradient(135deg, #f4f2ff 0%, #ffffff 70%);
+            color: #1e293b;
+            padding: 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box; /* 追加 */
+        }
+        .main-container {
+            width: 100%;
+            max-width: 900px; /* 最大幅を少し狭めてスマホでのバランスを改善 */
+            margin: 1.5rem auto; /* 上下マージン調整 */
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem clamp(1rem, 4vw, 2rem); /* パディング調整 */
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(100, 100, 150, 0.12);
+        }
+        .header-title {
+            font-size: clamp(1.6rem, 5vw, 2.1rem); /* 少しフォントサイズ調整 */
+            font-weight: 900;
+            color: #5b21b6;
+            text-align: center;
+            margin-bottom: 0.375rem;
+        }
+        .header-subtitle {
+            font-size: clamp(0.9rem, 2.8vw, 1.05rem); /* 少しフォントサイズ調整 */
+            font-weight: 500;
+            color: #7c3aed;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .toc-grid {
+            display: grid;
+            /* スマホでは常に1カラム、画面幅768px以上で2カラムになるように変更 */
+            grid-template-columns: 1fr;
+            gap: 1rem; /* 隙間 */
+        }
+        @media (min-width: 768px) { /* mdサイズ以上で2カラム */
+            .toc-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+            }
+        }
+        .toc-item-card {
+            background-color: #ffffff;
+            border: 1px solid #ede9fe;
+            border-radius: 10px;
+            padding: 1.25rem; /* カード内パディング */
+            display: flex;
+            align-items: flex-start; /* アイコンとテキストブロックを上揃え */
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+        .toc-item-card:hover {
+            transform: translateY(-3px); /* ホバー時の動きを少し控えめに */
+            box-shadow: 0 6px 15px rgba(100, 100, 150, 0.12);
+        }
+        .toc-item-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+        }
+        .item-icon-container {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.875rem;
+            background-color: #f5f3ff;
+        }
+        .toc-icon {
+            font-size: 1rem; /* アイコンサイズ調整 */
+            color: #7c3aed;
+        }
+        .item-text-container {
+            flex-grow: 1;
+            min-width: 0; /* これがないとflexアイテムが縮まないことがある */
+        }
+        .item-title {
+            font-size: 0.9rem; /* タイトルフォントサイズ調整 */
+            font-weight: 600;
+            color: #312e81;
+            line-height: 1.4;
+            margin-bottom: 0.25rem;
+            word-break: break-word; /* 長い単語も折り返すように */
+        }
+        .toc-item-link:hover .item-title {
+            color: #6d28d9;
+        }
+        .footer-banner {
+            margin-top: 2.5rem; /* 上マージン調整 */
+            padding: 0.75rem 1.5rem;
+            background-color: #f5f3ff;
+            color: #5b21b6;
+            border: 1px solid #ddd6fe;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.9rem; /* 少し小さく */
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .center-footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="header-title">禁断のプロンプト : 目次</h1>
+        <h2 class="header-subtitle">AIの真の力を解き放つ実践ガイド</h2>
+
+        <div class="toc-grid">
+            <div class="toc-item-card">
+                <a href="slide3.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-file-alt toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">1. はじめに: プロンプトエンジニアリングの重要性</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="toc-item-card">
+                <a href="slide4.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-theater-masks toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">2. 型破りペルソナ術: AIに「魂」をインストールする</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="toc-item-card">
+                <a href="slide5.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-heart toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">3. 感情を揺さぶるプロンプト: AIに「心」を宿らせる方法</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="toc-item-card">
+                <a href="slide6.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-lightbulb toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">4. 思考をハックする: 高度プロンプト戦術</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="toc-item-card">
+                <a href="slide7.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-brain toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">5. メタ認知プロンプト: AI自身に答えを「進化」させる技術</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="toc-item-card">
+                <a href="slide8.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-random toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">6. 水平思考プロンプト: AIから奇抜なアイデアを引き出す</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="toc-item-card">
+                <a href="slide9.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-balance-scale-left toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">7. 逆説・矛盾プロンプト: AIの論理限界に挑戦</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="toc-item-card">
+                <a href="slide10.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-puzzle-piece toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">8. プロンプトフレームワーク: 実践的テンプレートの活用法</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="toc-item-card">
+                <a href="slide11.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-user-cog toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">9. AIを育てる方法: カスタマイズされた長期的関係構築</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="toc-item-card">
+                <a href="slide12.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-lock toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">10. 未公開の禁断プロンプト集: 限られた者だけが知るテクニック</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="toc-item-card">
+                <a href="slide13.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-link toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">11. プロンプトチェイニング: 複数プロンプトの連鎖で能力を最大化</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="toc-item-card">
+                <a href="slide14.html" class="toc-item-link">
+                    <div class="item-icon-container">
+                        <i class="fas fa-award toc-icon"></i>
+                    </div>
+                    <div class="item-text-container">
+                        <h3 class="item-title">12. 禁断のプロンプトマスター: 実践のすすめ</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="center-footer">
+            <div class="footer-banner">
+                <i class="fas fa-shield-alt"></i> 生成AIを使いこなすための秘密の武器
+            </div>
+        </div>
+    </div>
+</body>
+</html>
